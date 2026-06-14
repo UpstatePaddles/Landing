@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upstate Pickleball & Paddles — Powered by Paddle-Fit Pro™</title>
+  <meta name="description" content="Greenville SC's premier pickleball paddle demo destination. 30+ brands, 150-200 models, try before you buy. Powered by Paddle-Fit Pro™ at MyPaddleFit.com." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #1B3A6B;
+      --navy-deep: #0f2347;
+      --navy-mid: #162f58;
+      --green: #2E8B57;
+      --green-dark: #1f6b3e;
+      --gold: #D4A017;
+      --gold-light: #e8b420;
+      --white: #FFFFFF;
+      --off-white: #F7F8FA;
+      --text-mid: #4A5568;
+      --text-light: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--white);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy-deep);
+      padding: 32px 24px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--green), var(--gold), transparent);
+    }
+
+    .logo-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .logo-stack img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+      transition: transform 0.3s ease;
+    }
+
+    .logo-stack img:hover { transform: scale(1.03); }
+
+    .logo-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 240px;
+    }
+
+    .logo-divider::before,
+    .logo-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,160,23,0.5));
+    }
+
+    .logo-divider::after {
+      background: linear-gradient(90deg, rgba(212,160,23,0.5), transparent);
+    }
+
+    .logo-divider span {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(155deg, var(--navy) 0%, var(--navy-deep) 60%, #0a1a38 100%);
+      padding: 72px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(46,139,87,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(212,160,23,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 24px;
+      padding: 6px 18px;
+      border: 1px solid rgba(212,160,23,0.3);
+      border-radius: 50px;
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(38px, 8vw, 72px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.0;
+      max-width: 800px;
+      margin: 0 auto 24px;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      animation: fadeUp 0.7s ease 0.2s both;
+    }
+
+    .hero h1 .accent {
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero h1 .accent-green {
+      color: #5fca8a;
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 2.2vw, 18px);
+      color: rgba(255,255,255,0.72);
+      max-width: 540px;
+      margin: 0 auto 44px;
+      line-height: 1.65;
+      font-weight: 400;
+      animation: fadeUp 0.7s ease 0.3s both;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      animation: fadeUp 0.7s ease 0.4s both;
+    }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 18px 48px;
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(46,139,87,0.5), 0 0 0 0 rgba(46,139,87,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.4s ease;
+    }
+
+    .cta-primary:hover::before { left: 100%; }
+
+    .cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(46,139,87,0.6);
+      background: var(--green-dark);
+    }
+
+    .cta-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.42);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── IMPACT ── */
+    .impact {
+      background: var(--off-white);
+      padding: 60px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .impact::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 120px;
+      color: var(--navy);
+      opacity: 0.06;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .impact blockquote {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(20px, 3.5vw, 30px);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--navy);
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+      position: relative;
+    }
+
+    .impact blockquote .highlight {
+      color: var(--green);
+    }
+
+    .impact-attr {
+      margin-top: 20px;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* ── BENEFITS ── */
+    .benefits {
+      padding: 72px 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      text-align: center;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 48px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .benefit-card {
+      background: var(--off-white);
+      border-radius: 8px;
+      padding: 32px 28px;
+      border-left: 4px solid var(--navy);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 60px; height: 60px;
+      background: radial-gradient(circle at bottom right, rgba(27,58,107,0.06), transparent);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--green);
+      box-shadow: 0 8px 32px rgba(27,58,107,0.1);
+    }
+
+    .benefit-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .benefit-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .benefit-card p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* ── BRANDS ── */
+    .brands {
+      background: var(--navy);
+      padding: 64px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brands::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .brands .section-eyebrow { color: var(--gold); }
+    .brands .section-title { color: var(--white); margin-bottom: 32px; }
+
+    .brands-sublabel {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      margin: 24px 0 12px;
+    }
+
+    .brands-sublabel:first-of-type { margin-top: 0; }
+
+    .brands-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .brand-pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 15px;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .brand-pill:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-1px);
+    }
+
+    .brand-pill--own {
+      background: rgba(212,160,23,0.2);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .brand-pill--own:hover { background: rgba(212,160,23,0.32); }
+
+    .brand-pill--accessory {
+      background: rgba(46,139,87,0.2);
+      border-color: var(--green);
+      color: #7edba4;
+    }
+
+    .brand-pill--accessory:hover { background: rgba(46,139,87,0.32); }
+
+    .brands-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin: 28px auto 0;
+      max-width: 600px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .legend-dot--brand { background: rgba(255,255,255,0.4); }
+    .legend-dot--own { background: var(--gold); }
+    .legend-dot--accessory { background: var(--green); }
+
+    .brands-more {
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.38);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── GARY ── */
+    .gary-section {
+      padding: 80px 24px;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .gary-photo-wrap {
+      position: relative;
+    }
+
+    .gary-photo-wrap::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: -12px;
+      bottom: -12px;
+      background: var(--navy);
+      border-radius: 8px;
+      z-index: 0;
+    }
+
+    .gary-photo-wrap img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 8px;
+      display: block;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 16px 48px rgba(27,58,107,0.2);
+    }
+
+    .gary-content h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 20px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .gary-content p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.72;
+      margin-bottom: 14px;
+    }
+
+    .gary-tagline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--green);
+      margin-top: 8px;
+      margin-bottom: 24px !important;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--off-white);
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .contact-chip:hover {
+      background: #e8edf5;
+      border-color: var(--navy);
+    }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bottom-cta::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .bottom-cta h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(32px, 6vw, 54px);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+
+    .bottom-cta p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.78);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    .cta-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--green-dark);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 18px 48px;
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .cta-white:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.28);
+    }
+
+    .bottom-cta-sub {
+      margin-top: 16px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-deep);
+      padding: 40px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(212,160,23,0.4), transparent);
+    }
+
+    .footer-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.9;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover { color: var(--white); }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      margin: 16px auto;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 680px) {
+      .gary-section {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        text-align: center;
+      }
+
+      .gary-photo-wrap {
+        max-width: 220px;
+        margin: 0 auto;
+      }
+
+      .gary-photo-wrap::before {
+        top: 8px; left: 8px;
+        right: -8px; bottom: -8px;
+      }
+
+      .contact-row { justify-content: center; }
+
+      .cta-primary,
+      .cta-white {
+        width: 100%;
+        max-width: 340px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-stack">
+      <img src="upstate_paddles_logo.png" alt="Upstate Pickleball & Paddles" />
+      <div class="logo-divider"><span>Powered by</span></div>
+      <img src="paddle_puzzle_logo.png" alt="Paddle-Fit Pro™" />
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">🏓 &nbsp; Greenville SC &nbsp;·&nbsp; BaselineGVL &nbsp;·&nbsp; MyPaddleFit.com</p>
+    <h1>
+      Find Your<br/>
+      <span class="accent">Perfect Paddle.</span>
+      <span style="font-size:0.7em; display:block; margin-top:8px; color:rgba(255,255,255,0.9);">Try It Before You <span class="accent-green">Buy It.</span></span>
+    </h1>
+    <p class="hero-sub">
+      Greenville's only full-service paddle demo destination.
+      30+ brands, 150–200 models, expert guidance, and the most
+      advanced demo technology available — anywhere.
+    </p>
+    <div class="hero-cta-group">
+      <a href="https://mypaddlefit.com/register" class="cta-primary">
+        🏓 &nbsp; Create Your Free Account
+      </a>
+      <p class="cta-sub">Free to join &nbsp;·&nbsp; No credit card required &nbsp;·&nbsp; MyPaddleFit.com</p>
+    </div>
+  </section>
+
+  <!-- IMPACT STATEMENT -->
+  <section class="impact">
+    <blockquote>
+      "To Fit the Perfect Paddle to the Player —
+      not to fit the Player to the Perfect Paddle.
+      <span class="highlight">Because the Perfect Paddle doesn't exist."</span>
+    </blockquote>
+    <p class="impact-attr">— Gary Link &nbsp;·&nbsp; Founder, Upstate Pickleball & Paddles</p>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <p class="section-eyebrow">The Paddle-Fit Pro™ Advantage</p>
+    <h2 class="section-title">Everything You Need.<br/>Nothing You Don't.</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span class="benefit-icon">🎯</span>
+        <h3>Try Before You Buy</h3>
+        <p>Demo any paddle for 7 or 10 days on your own courts. Experience exactly how it plays before you ever commit to a purchase.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">🔥</span>
+        <h3>Your FirePower™ Rating</h3>
+        <p>Discover your exclusive FirePower™ number — the precise Power and Pop combination that matches your unique game. No one else offers this.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">📱</span>
+        <h3>Browse 150–200 Models</h3>
+        <p>Browse the full inventory from your phone at MyPaddleFit.com. Flip cards for full specs, compare up to 3 paddles side by side.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">💰</span>
+        <h3>Demo Credit Toward Purchase</h3>
+        <p>Your demo fee applies directly toward your purchase within 4 weeks. No other option in Greenville offers this benefit.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">📋</span>
+        <h3>Personal Member ID</h3>
+        <p>Your complete demo history, preferences, and player profile tracked permanently. Your own UPP Member ID from day one.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">👑</span>
+        <h3>VIP Club — $10/Year</h3>
+        <p>Birthday coupon, priority new release access, free on-court evaluation, quarterly grip replacement. $120+ in documented value annually.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="brands">
+    <p class="section-eyebrow">Our Inventory</p>
+    <h2 class="section-title">30+ Brands & Products.<br/>One Destination.</h2>
+
+    <p class="brands-sublabel">Paddle Brands</p>
+    <div class="brands-list">
+      <span class="brand-pill">Selkirk</span>
+      <span class="brand-pill">Joola</span>
+      <span class="brand-pill">Paddletek</span>
+      <span class="brand-pill">Engage</span>
+      <span class="brand-pill">Franklin</span>
+      <span class="brand-pill">Gamma</span>
+      <span class="brand-pill">Six Zero</span>
+      <span class="brand-pill">Gearbox</span>
+      <span class="brand-pill">Diadem</span>
+      <span class="brand-pill">Legacy Pro</span>
+      <span class="brand-pill">Thrive</span>
+      <span class="brand-pill">11Six24</span>
+      <span class="brand-pill">Volair</span>
+      <span class="brand-pill">Honolulu</span>
+      <span class="brand-pill">Sparta</span>
+      <span class="brand-pill">Bread & Butter</span>
+      <span class="brand-pill">Aireo</span>
+      <span class="brand-pill">Luzz</span>
+      <span class="brand-pill">Ultimate Pickleball</span>
+      <span class="brand-pill">CRBN</span>
+      <span class="brand-pill">RPM</span>
+      <span class="brand-pill">Vatic Pro</span>
+      <span class="brand-pill">Ronbus</span>
+      <span class="brand-pill">Pro Drive</span>
+      <span class="brand-pill">Proton</span>
+      <span class="brand-pill">Holbrook</span>
+      <span class="brand-pill">Pro Kennex</span>
+      <span class="brand-pill">Boundless</span>
+      <span class="brand-pill">Facolos</span>
+    </div>
+
+    <p class="brands-sublabel" style="margin-top:28px;">Gary's Own Brands</p>
+    <div class="brands-list">
+      <span class="brand-pill brand-pill--own">★ &nbsp; Shock & Awe Pickleball Co.</span>
+      <span class="brand-pill brand-pill--own">★ &nbsp; Wrapsure Pro</span>
+    </div>
+
+    <p class="brands-sublabel" style="margin-top:28px;">Accessories & Equipment</p>
+    <div class="brands-list">
+      <span class="brand-pill brand-pill--accessory">Bodhi</span>
+      <span class="brand-pill brand-pill--accessory">Paddle Reset</span>
+      <span class="brand-pill brand-pill--accessory">Lifetime LT48</span>
+    </div>
+
+    <div class="brands-legend">
+      <span class="legend-item">
+        <span class="legend-dot legend-dot--brand"></span>
+        Paddle Brand
+      </span>
+      <span class="legend-item">
+        <span class="legend-dot legend-dot--own"></span>
+        Gary's Own Brand
+      </span>
+      <span class="legend-item">
+        <span class="legend-dot legend-dot--accessory"></span>
+        Accessories & Equipment
+      </span>
+    </div>
+
+    <p class="brands-more">Browse the full inventory at MyPaddleFit.com</p>
+  </section>
+
+  <!-- GARY -->
+  <section class="gary-section">
+    <div class="gary-photo-wrap">
+      <img src="gary_photo.png" alt="Gary Link — Owner, Upstate Pickleball & Paddles" />
+    </div>
+    <div class="gary-content">
+      <h2>A Real Person.<br/>Every Single Time.</h2>
+      <p>
+        Gary Link built Upstate Pickleball & Paddles on one principle —
+        the relationship matters more than the transaction. Every demo
+        recommendation, every paddle decision, every question you have —
+        Gary is personally here for it.
+      </p>
+      <p>
+        No bots. No support tickets. No call centers. Tap Chat inside
+        Paddle-Fit Pro™ and you reach Gary directly — the person who
+        knows every paddle in the inventory.
+      </p>
+      <p class="gary-tagline">"Relationships Over Transactions — always."</p>
+      <div class="contact-row">
+        <a href="tel:8642750161" class="contact-chip">📞 &nbsp; 864-275-0161</a>
+        <a href="mailto:gary@upstatepaddles.com" class="contact-chip">✉️ &nbsp; gary@upstatepaddles.com</a>
+        <span class="contact-chip">📍 &nbsp; BaselineGVL — Greenville SC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>Your Paddle Journey<br/>Starts Here.</h2>
+    <p>
+      Create your free account at MyPaddleFit.com. Browse 150–200 models,
+      request your first demo, and discover your FirePower™ rating today.
+    </p>
+    <a href="https://mypaddlefit.com/register" class="cta-white">
+      Create Your Free Account &nbsp; →
+    </a>
+    <p class="bottom-cta-sub">Free &nbsp;·&nbsp; No Credit Card &nbsp;·&nbsp; MyPaddleFit.com</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-brand">Upstate Pickleball & Paddles LLC</p>
+    <p>
+      5 Gladys Dr. &nbsp;·&nbsp; Greenville SC &nbsp;·&nbsp;
+      <a href="tel:8642750161">864-275-0161</a> &nbsp;·&nbsp;
+      <a href="mailto:gary@upstatepaddles.com">gary@upstatepaddles.com</a>
+    </p>
+    <div class="footer-divider"></div>
+    <p>
+      <a href="https://mypaddlefit.com">MyPaddleFit.com</a>
+      &nbsp;·&nbsp; Powered by Paddle-Fit Pro™
+      &nbsp;·&nbsp; © 2026 Upstate Pickleball & Paddles LLC
+    </p>
+  </footer>
+
+</body>
+</html>
+```
